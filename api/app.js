@@ -11,21 +11,21 @@ const __dirname = path.resolve();
 const app = express();
 
 // dev
-// app.use(cors({}));
+app.use(cors({}));
 
 // socket configurations
 const server = http.createServer(app);
 
 // developement
-// const io = new Server(server, {
-//   cors: {
-//     origin: process.env.CLIENT_URL,
-//     methods: ["GET", "POST"],
-//   },
-// });
+const io = new Server(server, {
+  cors: {
+    origin: process.env.CLIENT_URL,
+    methods: ["GET", "POST"],
+  },
+});
 
 // production
-const io = new Server(server);
+// const io = new Server(server);
 
 // store room-specific code
 const rooms = {};
